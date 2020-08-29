@@ -49,11 +49,11 @@ Porque??
 Si vemos la funcion de `serializar_paquete_error` en los primeros 4 bytes pone el numero del codigo de operacion, el cual es 0 del enum de codigos.
 En el segundo pone la cantidad de bytes que ocupa todo el buffer, ya que esta pensado para enviar a un servidor multi-hilo.
 
-Para correr los test primero tenemos que compilarlo con la libreria cspec y luego ejecutar el binario
-```bash
-$ > gcc src/serialization-test.c -o tests -lcspecs
-$ > ./tests
-```
+Ahora a probar!!
+
+Contamos con dos ejemplos, uno tiene una carpeta `src` donde contamos tanto el archivo de test como el .c donde estan definidas las funcions. El otro tiene dentro una shared library con las mismas funciones.
+
+Para correr el primero la unica libreria que necesita es cpecs, como se encuentra en el makefile se le agrega el flag `-lcspecs`.
 
 Para instalar cspec:
 ```bash
@@ -64,3 +64,18 @@ $ > sudo make install
 ```
 
 [Documentacion de cspec](https://github.com/mumuki/cspec)
+
+Ahora que tenemos cpecs instalado a nivel sistema podemos compilar y correr el archivo de test de la siguiente manera
+```bash
+$ > cd TestSimpleSrcs && make
+$ > ./serialization-test
+```
+
+El segundo ejemplo cuneta con una shared library creada mediante eclipse, la cual tiene el mismo codigo que el ejemplo anterior. Lo unico que agregamos es como testear codigo que se encuentra en una libreria.
+
+Para compilarlo y correrlo
+```bash
+$ > cd TestSharedLibrary && make
+$ > LD_LIBRARY_PATH="libSerializacion/Debug/" ./serialization-test
+```
+

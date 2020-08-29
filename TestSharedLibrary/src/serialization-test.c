@@ -1,9 +1,9 @@
 #include <stdio.h>
-#include <stdbool.h>
+#include <stdlib.h>
 #include <cspecs/cspec.h>
-#include "serialization.c"
-context (example) {
+#include <libSerializacion.h>
 
+context (example) {
     describe("t_error serialization test") {
 
         it("serialization-deserialization size-test") {
@@ -20,5 +20,4 @@ context (example) {
             should_string(_error->descripcion) be equal to(__error->descripcion);
         }end
     }end
-
 }
