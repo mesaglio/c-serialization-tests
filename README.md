@@ -79,3 +79,10 @@ $ > cd TestSharedLibrary && make
 $ > LD_LIBRARY_PATH="libSerializacion/Debug/" ./serialization-test
 ```
 
+Para ver los packetes con tcpdump en ascii:
+```
+$ > sudo tcpdump 'tcp[13] & 8!=0' and -A -nvvv -i lo port SERVER_PORT
+#Example
+$ > sudo tcpdump 'tcp[13] & 8!=0' and -A -nvvv -i lo port 8080
+```
+ PD: la parte de `'tcp[13] & 8!=0'` es para [filtrar por flag push](https://danielmiessler.com/study/tcpdump/).
