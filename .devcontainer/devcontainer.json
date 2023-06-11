@@ -1,0 +1,11 @@
+{
+  "name": "c-serialization-test",
+  "image": "ubuntu:22.04",
+  "features": {},
+  "remoteEnv": {
+    "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
+  },
+  "privileged": true,
+  "remoteUser": "root",
+  "postCreateCommand": "apt update && apt-get install -y gcc make git && git config --global --add safe.directory '*' && git clone https://github.com/sisoputnfrba/so-commons-library && cd so-commons-library && make install"
+}

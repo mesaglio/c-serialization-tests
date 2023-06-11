@@ -4,7 +4,7 @@ LIBS = -lcspecs
 
 CC = gcc
 
-CFLAGS = -g -Wall
+CFLAGS = -g -Wall -fcommon 
 
 .PHONY: default all clean
 
@@ -22,4 +22,5 @@ $(TARGET): $(OBJECTS)
 
 clean:
 	-rm -f *.o
+	-rm -f src/*.o
 	-rm -f $(TARGET)
